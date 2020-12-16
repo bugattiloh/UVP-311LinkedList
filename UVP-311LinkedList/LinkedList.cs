@@ -5,16 +5,17 @@ using System.Text;
 
 namespace UVP_311LinkedList
 {
-    public class LinkedList<Student> : IEnumerable<Student>
+    public class LinkedList<Student> : IEnumerable
     {
-        Node<Student> head;
-        Node<Student> tail;
-        int numberOfStudents;
+       public Node<Student> head { get; set; }
+        public Node<Student> tail { get; set; }
+        int numberOfStudents { get; set; }
 
         public int getNumberOfStudents()
         {
             return numberOfStudents;
         }
+
         public void Add(Student student)
         {
             Node<Student> node = new Node<Student>(student);
@@ -30,60 +31,62 @@ namespace UVP_311LinkedList
             tail = node;
             numberOfStudents++;
         }
-        public bool Remove(Student del)
+
+        public Node<Student> GetNode(int index)
         {
             Node<Student> current = head;
-            Node<Student> previous = null;
-
-            while (current != null)
+            int k = 0;
+            while (k < index)
             {
-                if (current.student.Equals(del))
-                {
-                    if (previous != null)
-                    {
-                        previous.Next = current.Next;
-
-                        if (current.Next == null)
-                            tail = previous;
-                    }
-                    else
-                    {
-                        head = head.Next;
-
-                        if (head == null)
-                            tail = null;
-                    }
-                    numberOfStudents--;
-                    return true;
-                }
-
-                previous = current;
                 current = current.Next;
+                k++;
             }
-            return false;
+
+            return current;
         }
+
+
+        public void Remove(int index)
+        {
+            Node<Student> current = head;
+            int k = 0;
+            while (k < index)
+            {
+                current = current.Next;
+                k++;
+            }
+            if (k == 0)
+            {
+                if (head.Next != null)
+                {
+                    head = head.Next;
+                }
+                else
+                {
+                    head = null;
+                }
+            }
+            else if (k == numberOfStudents - 1)
+            {
+                tail = null;
+            }
+            else
+            {
+                current.Next = current.Next.Next;
+            }
+            numberOfStudents--;
+        }
+
         public bool isEmptyGroup()
         {
             return numberOfStudents == 0;
         }
+
         public void doClear()
         {
             head = null;
             tail = null;
             numberOfStudents = 0;
-        }
-        public bool isContains(Student student)
-        {
-            Node<Student> current = head;
-            while (current != null)
-            {
-                if (current.student.Equals(student))
-                {
-                    return true;
-                }
-                current = current.Next;
-            }
-            return false;
         }
         public void addToHead(Student student)
         {
@@ -97,8 +100,10 @@ namespace UVP_311LinkedList
             numberOfStudents++;
         }
 
-
-
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return (IEnumerator)GetEnumerator();
+        }
         IEnumerator<Student> GetEnumerator()
         {
             Node<Student> current = head;
@@ -109,15 +114,6 @@ namespace UVP_311LinkedList
             }
         }
 
-        IEnumerator<Student> IEnumerable<Student>.GetEnumerator()
-        {
-            yield return (Student)((IEnumerable)this).GetEnumerator();
-        }
-
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            throw new NotImplementedException();
-        }
     }
 
 }

@@ -12,7 +12,6 @@ namespace UVP_311LinkedList
             group.Add(new Student("Aphonina", "Anastasia"));
             group.Add(new Student("Bagian", "Grigory"));
             group.Add(new Student("Galaev", "Evgeniy"));
-            group.Add(new Student("Galaev", "Evgeniy"));
             group.Add(new Student("Gorodnikov", "Alexander"));
             group.Add(new Student("Doroshenko", "Petr"));
             group.Add(new Student("Zamanov", "Dmitry"));
@@ -24,14 +23,30 @@ namespace UVP_311LinkedList
             group.Add(new Student("Nepryahina", "Alena"));
             group.Add(new Student("Novopasheniy", "Maxim"));
             group.Add(new Student("Sinitsa", "Egor"));
-            group.Add(new Student("Sinitsa", "Egor"));
             group.Add(new Student("Skvortsov", "Denis"));
             group.Add(new Student("Tarberdyev", "Sergey"));
             group.Add(new Student("Tolkunov", "Dmitry"));
             group.Add(new Student("Yuhanson", "Mihail"));
 
 
+            Console.WriteLine(group.getNumberOfStudents());
 
+
+            foreach (var item in group)
+            {
+                if (!group.isEmptyGroup())
+                {
+                    Console.WriteLine("Yeah");
+                }
+            }
+
+
+            group.Remove(6);
+            Console.WriteLine(group.getNumberOfStudents());
+
+
+            group.doClear();
+            Console.WriteLine(group.getNumberOfStudents());
         }
     }
 }

@@ -1,10 +1,11 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 
 namespace UVP_311LinkedList
 {
-    class Student
+    public class Student
     {
         string Name { get; set; }
         string Surname { get; set; }
@@ -14,7 +15,7 @@ namespace UVP_311LinkedList
             Name = "";
             Surname = "";
         }
-        public Student(string name_,string surname_)
+        public Student(string name_, string surname_)
         {
             Name = name_;
             Surname = surname_;
@@ -24,8 +25,6 @@ namespace UVP_311LinkedList
         {
             Console.WriteLine(Name + " " + Surname);
         }
-
-
 
     }
 }
