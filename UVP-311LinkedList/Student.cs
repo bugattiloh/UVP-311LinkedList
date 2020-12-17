@@ -25,8 +25,5 @@ namespace UVP_311LinkedList
         {
             Console.WriteLine(Name + " " + Surname);
         }
-
-
-
     }
 }
