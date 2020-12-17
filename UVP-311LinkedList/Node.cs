@@ -4,14 +4,14 @@ using System.Text;
 
 namespace UVP_311LinkedList
 {
-    public class Node<Student>
+    public class Node<T>
     {
-        public Student student { get; set; }
-        public Node<Student> Next { get; set; }
+        public T Data { get; set; }
+        public Node<T> Next { get; set; }
 
-        public Node(Student student_)
+        public Node(T data)
         {
-            student_ = student;
+            Data = data;
         }
     }
 }

@@ -6,47 +6,43 @@ namespace UVP_311LinkedList
     {
         static void Main(string[] args)
         {
-            var group = new LinkedList<Student>();
+            var group = new UniversityGroup();
 
-            group.Add(new Student("Ekaterina", "Antonova"));
-            group.Add(new Student("Aphonina", "Anastasia"));
-            group.Add(new Student("Bagian", "Grigory"));
-            group.Add(new Student("Galaev", "Evgeniy"));
-            group.Add(new Student("Gorodnikov", "Alexander"));
-            group.Add(new Student("Doroshenko", "Petr"));
-            group.Add(new Student("Zamanov", "Dmitry"));
-            group.Add(new Student("Karpuhin", "Mihail"));
-            group.Add(new Student("Kozlov", "Artem"));
-            group.Add(new Student("Mashukov", "Ratmir"));
-            group.Add(new Student("Medvedev", "Alexey"));
-            group.Add(new Student("Melnik", "Anastasia"));
-            group.Add(new Student("Nepryahina", "Alena"));
-            group.Add(new Student("Novopasheniy", "Maxim"));
-            group.Add(new Student("Sinitsa", "Egor"));
-            group.Add(new Student("Skvortsov", "Denis"));
-            group.Add(new Student("Tarberdyev", "Sergey"));
-            group.Add(new Student("Tolkunov", "Dmitry"));
-            group.Add(new Student("Yuhanson", "Mihail"));
-
-
-            Console.WriteLine(group.getNumberOfStudents());
+            group.AddStudent(new Student("Ekaterina", "Antonova"));
+            group.AddStudent(new Student("Aphonina", "Anastasia"));
+            group.AddStudent(new Student("Bagian", "Grigory"));
+            group.AddStudent(new Student("Galaev", "Evgeniy"));
+            group.AddStudent(new Student("Gorodnikov", "Alexander"));
+            group.AddStudent(new Student("Doroshenko", "Petr"));
+            group.AddStudent(new Student("Zamanov", "Dmitry"));
+            group.AddStudent(new Student("Karpuhin", "Mihail"));
+            group.AddStudent(new Student("Kozlov", "Artem"));
+            group.AddStudent(new Student("Mashukov", "Ratmir"));
+            group.AddStudent(new Student("Medvedev", "Alexey"));
+            group.AddStudent(new Student("Melnik", "Anastasia"));
+            group.AddStudent(new Student("Nepryahina", "Alena"));
+            group.AddStudent(new Student("Novopasheniy", "Maxim"));
+            group.AddStudent(new Student("Sinitsa", "Egor"));
+            group.AddStudent(new Student("Skvortsov", "Denis"));
+            group.AddStudent(new Student("Tarberdyev", "Sergey"));
+            group.AddStudent(new Student("Tolkunov", "Dmitry"));
+            group.AddStudent(new Student("Yuhanson", "Mihail"));
 
 
-            foreach (var item in group)
-            {
-                if (!group.isEmptyGroup())
-                {
-                    Console.WriteLine("Yeah");
-                }
-            }
+            Console.WriteLine(group.numberOfStudents);
 
 
-            group.Remove(6);
-            Console.WriteLine(group.getNumberOfStudents());
+            group.ShowGroup();
 
 
-            group.doClear();
-            Console.WriteLine(group.getNumberOfStudents());
+            group.RemoveStudent(5);
+            Console.WriteLine("\nPetya deleted,RIP\n");
+            group.ShowGroup();
+            Console.WriteLine(group.numberOfStudents);
+
+
+            group.CleanGroup();
+            Console.WriteLine(group.numberOfStudents);
         }
     }
 }

@@ -21,10 +21,12 @@ namespace UVP_311LinkedList
             Surname = surname_;
         }
 
-        public void showInfo()
+        public void ShowInfo()
         {
             Console.WriteLine(Name + " " + Surname);
         }
+
+
 
     }
 }
